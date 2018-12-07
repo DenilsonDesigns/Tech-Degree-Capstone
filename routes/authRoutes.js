@@ -24,4 +24,5 @@ module.exports = app => {
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
   });
+  //add route to return user's favourite stocks as an array
 };

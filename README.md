@@ -1,6 +1,4 @@
-# Team Treehouse Tech Degree
-
-# Capstone Project
+# Stockify App
 
 # MERN
 
