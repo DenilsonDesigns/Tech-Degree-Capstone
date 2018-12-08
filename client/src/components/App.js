@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import * as actions from "../actions";
 import Landing from "./Landing";
+import MarketOverview from "./MarketOverview";
+import TechOverview from "./TechOverview";
 
-const MarketOverview = () => <h2>Market Overview</h2>;
 const StockProfile = () => <h2>StockProfile</h2>;
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/" component={Landing} />
               <Route path="/market-overview" component={MarketOverview} />
               <Route path="/stock-profile" component={StockProfile} />
+              <Route path="/tech" component={TechOverview} />
             </div>
           </div>
         </BrowserRouter>
