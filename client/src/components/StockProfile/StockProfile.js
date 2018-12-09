@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import keys from "../../config/keys";
 import Spinner from "./../UI/Spinner";
 //
+console.log(keys.stockKey);
+console.log(keys.newsKey);
 
 class StockProfile extends Component {
   state = {
