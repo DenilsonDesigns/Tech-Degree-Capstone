@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import keys from "../../config/keys";
 import NewsLink from "./NewsLink/NewsLink";
 
+const apiKey = keys.newsKey;
+
 const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI(keys.newsKey);
+const newsapi = new NewsAPI(apiKey);
 
 class News extends Component {
   state = {
