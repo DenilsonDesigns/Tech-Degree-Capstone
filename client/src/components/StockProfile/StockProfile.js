@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import keys from "../../config/keys";
 import Spinner from "./../UI/Spinner";
+//
 
 class StockProfile extends Component {
   state = {
