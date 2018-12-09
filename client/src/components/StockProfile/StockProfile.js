@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import keys from "../../config/keys";
 import Spinner from "./../UI/Spinner";
 
-console.log(keys.stockKey || process.env.STOCK_KEY);
-
 class StockProfile extends Component {
   state = {
     loading: false,
@@ -11,6 +9,7 @@ class StockProfile extends Component {
   };
   h;
   componentDidMount() {
+    console.log(keys.stockKey || process.env.STOCK_KEY);
     this.setState({
       loading: true
     });
