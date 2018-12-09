@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import keys from "../../config/keys";
 import Spinner from "./../UI/Spinner";
+
+const STOCK_KEY = process.env.REACT_APP_STOCK_KEY;
+console.log(process.env.REACT_APP_STOCK_KEY);
 
 class StockProfile extends Component {
   state = {
@@ -9,14 +11,13 @@ class StockProfile extends Component {
   };
   h;
   componentDidMount() {
-    console.log(keys.stockKey || process.env.STOCK_KEY);
     this.setState({
       loading: true
     });
     const API_CALL = fetch(
       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${
         this.props.ticker
-      }&apikey=${keys.stockKey}`
+      }&apikey=${STOCK_KEY}`
     );
 
     API_CALL.then(res => {

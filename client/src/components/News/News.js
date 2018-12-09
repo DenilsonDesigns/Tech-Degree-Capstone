@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import keys from "../../config/keys";
 import NewsLink from "./NewsLink/NewsLink";
+
+const apiKey = process.env.REACT_APP_NEWS_KEY;
+console.log(apiKey);
+const NewsAPI = require("newsapi");
+const newsapi = new NewsAPI(apiKey);
 
 class News extends Component {
   state = {
@@ -9,10 +13,6 @@ class News extends Component {
   };
 
   componentDidMount() {
-    const apiKey = keys.newsKey || process.env.NEW_KEY;
-    console.log(apiKey);
-    const NewsAPI = require("newsapi");
-    const newsapi = new NewsAPI(apiKey);
     this.setState({
       loading: true
     });
