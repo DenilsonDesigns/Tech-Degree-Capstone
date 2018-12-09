@@ -7,7 +7,7 @@ class StockProfile extends Component {
     loading: false,
     stockInFocus: []
   };
-
+  h;
   componentDidMount() {
     this.setState({
       loading: true

@@ -23,7 +23,6 @@ class News extends Component {
         language: "en"
       })
       .then(response => {
-        console.log(response);
         this.setState({
           newStories: response.articles
         });
@@ -32,9 +31,10 @@ class News extends Component {
 
   render() {
     const newsArticles = this.state.newStories;
-    let links = newsArticles.map(link => {
+    let links = newsArticles.map((link, index) => {
       return (
         <NewsLink
+          key={index}
           link={link.url}
           description={link.description}
           imageURL={link.urlToImage}
@@ -55,21 +55,3 @@ class News extends Component {
 }
 
 export default News;
-// const GifList = props => {
-//   const results = props.data;
-//   let gifs = results.map(gif => <Gif key={gif.id} url={gif.url_c} />);
-//   return (
-//     <div>
-//       <h2>{props.title}</h2>
-//       <ul>{gifs}</ul>
-//     </div>
-//   );
-// };
-
-// const Gif = props => {
-//   return (
-//     <li>
-//       <img src={props.url} alt="" />
-//     </li>
-//   );
-// };
