@@ -16,10 +16,22 @@ class Header extends Component {
       default:
         return (
           <div>
-            <Link to="/tech" className="navbar-brand">
+            <Link
+              to="/market-overview"
+              className="navbar-brand font-weight-medium"
+            >
+              Indices
+            </Link>
+            <Link to="/tech" className="navbar-brand font-weight-medium">
               Tech Stocks
             </Link>
-            <p style={{ display: "inline-block" }} className="text-white">
+            <Link to="/news" className="navbar-brand font-weight-medium">
+              News
+            </Link>
+            <p
+              style={{ display: "inline-block" }}
+              className="text-white font-weight-light"
+            >
               Welcome {this.props.auth.firstName}
             </p>{" "}
             <a
@@ -40,7 +52,7 @@ class Header extends Component {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link
           to={this.props.auth ? "/market-overview" : "/"}
-          className="navbar-brand"
+          className="navbar-brand font-weight-bold"
         >
           Stockify
         </Link>
