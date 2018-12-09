@@ -7,7 +7,7 @@ import Landing from "./Landing";
 import MarketOverview from "./MarketOverview";
 import TechOverview from "./TechOverview";
 import StockProfile from "./StockProfile/StockProfile";
-import News from "./News";
+import News from "./News/News";
 
 class App extends Component {
   componentDidMount() {

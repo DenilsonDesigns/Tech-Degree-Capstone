@@ -4,15 +4,13 @@ import Spinner from "./../UI/Spinner";
 
 class StockProfile extends Component {
   state = {
-    error: false,
     loading: false,
     stockInFocus: []
   };
 
   componentDidMount() {
     this.setState({
-      loading: true,
-      error: false
+      loading: true
     });
     const API_CALL = fetch(
       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${
@@ -30,13 +28,13 @@ class StockProfile extends Component {
         });
       })
       .catch(err => {
-        console.log("Caught");
-        this.setState({ loading: false, error: true });
+        console.log("Error retrieving stock data");
+        this.setState({ loading: false });
       });
   }
 
   render() {
-    if (this.state.error) {
+    if (this.state.stockInFocus === undefined) {
       console.log("Returning error msg");
       return (
         <div>
