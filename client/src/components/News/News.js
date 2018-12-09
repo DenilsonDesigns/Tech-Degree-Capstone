@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import keys from "../../config/keys";
 import NewsLink from "./NewsLink/NewsLink";
 
-const apiKey = keys.newsKey;
+const apiKey = keys.newsKey || process.env.NEW_KEY;
 console.log(apiKey);
 const NewsAPI = require("newsapi");
 const newsapi = new NewsAPI(apiKey);

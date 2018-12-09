@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import keys from "../../config/keys";
 import Spinner from "./../UI/Spinner";
-//
-console.log(keys.stockKey);
-console.log(keys.newsKey);
+
+console.log(keys.stockKey || process.env.STOCK_KEY);
 
 class StockProfile extends Component {
   state = {
