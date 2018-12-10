@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Spinner from "./../UI/Spinner";
-
-const STOCK_KEY = process.env.REACT_APP_STOCK_KEY;
-console.log(process.env.REACT_APP_STOCK_KEY);
+import axios from "axios";
 
 class StockProfile extends Component {
   state = {
@@ -14,15 +12,22 @@ class StockProfile extends Component {
     this.setState({
       loading: true
     });
-    const API_CALL = fetch(
-      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${
-        this.props.ticker
-      }&apikey=${STOCK_KEY}`
-    );
 
-    API_CALL.then(res => {
-      return res.json();
-    })
+    // axios.get("/api/news").then(res => {
+    //   console.log(res);
+    //   this.setState({
+    //     newStories: res.data.articles
+    //   });
+    // });
+
+    let path = "/api/stock/" + this.props.ticker;
+    console.log(path);
+    axios
+      .get(path)
+      .then(res => {
+        console.log(res);
+        return res.json();
+      })
       .then(resData => {
         this.setState({
           stockInFocus: resData["Global Quote"],

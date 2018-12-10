@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import NewsLink from "./NewsLink/NewsLink";
-
-const apiKey = process.env.REACT_APP_NEWS_KEY;
-console.log(apiKey);
-const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI(apiKey);
+import axios from "axios";
 
 class News extends Component {
   state = {
@@ -17,17 +13,22 @@ class News extends Component {
       loading: true
     });
 
-    newsapi.v2
-      .topHeadlines({
-        q: "stock market",
-        category: "business",
-        language: "en"
-      })
-      .then(response => {
-        this.setState({
-          newStories: response.articles
-        });
+    axios.get("/api/news").then(res => {
+      this.setState({
+        newStories: res.data.articles
       });
+    });
+    // newsapi.v2
+    //   .topHeadlines({
+    //     q: "stock market",
+    //     category: "business",
+    //     language: "en"
+    //   })
+    //   .then(response => {
+    //     this.setState({
+    //       newStories: response.articles
+    //     });
+    //   });
   }
 
   render() {

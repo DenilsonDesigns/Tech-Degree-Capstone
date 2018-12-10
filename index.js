@@ -6,6 +6,7 @@ const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport");
 const authRoutes = require("./routes/authRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 
 mongoose.connect(
   keys.mongoURI,
@@ -22,6 +23,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+apiRoutes(app);
 authRoutes(app);
 
 if (process.env.NODE_ENV === "production") {
