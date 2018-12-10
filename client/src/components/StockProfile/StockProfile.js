@@ -25,10 +25,11 @@ class StockProfile extends Component {
     axios
       .get(path)
       .then(res => {
-        console.log(res);
-        return res.json();
+        // console.log(res.data);
+        return res.data;
       })
       .then(resData => {
+        console.log(resData);
         this.setState({
           stockInFocus: resData["Global Quote"],
           loading: false

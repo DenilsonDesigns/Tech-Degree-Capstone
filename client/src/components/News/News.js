@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewsLink from "./NewsLink/NewsLink";
+import Spinner from "./../UI/Spinner";
 import axios from "axios";
 
 class News extends Component {
@@ -15,7 +16,8 @@ class News extends Component {
 
     axios.get("/api/news").then(res => {
       this.setState({
-        newStories: res.data.articles
+        newStories: res.data.articles,
+        loading: false
       });
     });
     // newsapi.v2
@@ -45,14 +47,18 @@ class News extends Component {
       );
     });
 
-    return (
-      <div>
-        <h3>Latest Market News</h3>
-        <div className="card-columns">
-          <div>{links}</div>
+    if (this.state.loading) {
+      return <Spinner />;
+    } else {
+      return (
+        <div>
+          <h3>Latest Market News</h3>
+          <div className="card-columns">
+            <div>{links}</div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
