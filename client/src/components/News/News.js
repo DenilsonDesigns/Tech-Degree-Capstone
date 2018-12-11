@@ -52,7 +52,9 @@ class News extends Component {
     } else {
       return (
         <div>
-          <h3>Latest Market News</h3>
+          <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
+            Latest Market News
+          </h3>
           <div className="card-columns">
             <div>{links}</div>
           </div>

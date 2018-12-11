@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import * as actions from "../actions";
 import Landing from "./Landing";
+import "../css/index.css";
 import MarketOverview from "./MarketOverview";
 import TechOverview from "./TechOverview";
 import StockProfile from "./StockProfile/StockProfile";
@@ -27,44 +28,84 @@ class App extends Component {
               <Route
                 exact
                 path="/market-overview/djia"
-                render={props => <StockProfile {...props} ticker="djia" />}
+                render={props => (
+                  <div className="row">
+                    <MarketOverview />
+                    <StockProfile {...props} ticker="djia" />
+                  </div>
+                )}
               />
               <Route
                 exact
                 path="/market-overview/spx"
-                render={props => <StockProfile {...props} ticker="spx" />}
+                render={props => (
+                  <div className="row">
+                    <MarketOverview />
+                    <StockProfile {...props} ticker="spx" />
+                  </div>
+                )}
               />
               <Route
                 exact
                 path="/market-overview/ndx"
-                render={props => <StockProfile {...props} ticker="ndx" />}
+                render={props => (
+                  <div className="row">
+                    <MarketOverview />
+                    <StockProfile {...props} ticker="ndx" />
+                  </div>
+                )}
               />
 
               <Route exact path="/tech" component={TechOverview} />
               <Route
                 exact
                 path="/tech/aapl"
-                render={props => <StockProfile {...props} ticker="aapl" />}
+                render={props => (
+                  <div className="row">
+                    <TechOverview />
+                    <StockProfile {...props} ticker="aapl" />
+                  </div>
+                )}
               />
               <Route
                 exact
                 path="/tech/amzn"
-                render={props => <StockProfile {...props} ticker="amzn" />}
+                render={props => (
+                  <div className="row">
+                    <TechOverview />
+                    <StockProfile {...props} ticker="amzn" />
+                  </div>
+                )}
               />
               <Route
                 exact
                 path="/tech/fb"
-                render={props => <StockProfile {...props} ticker="fb" />}
+                render={props => (
+                  <div className="row">
+                    <TechOverview />
+                    <StockProfile {...props} ticker="fb" />
+                  </div>
+                )}
               />
               <Route
                 exact
                 path="/tech/goog"
-                render={props => <StockProfile {...props} ticker="goog" />}
+                render={props => (
+                  <div className="row">
+                    <TechOverview />
+                    <StockProfile {...props} ticker="goog" />
+                  </div>
+                )}
               />
               <Route
                 exact
                 path="/tech/nflx"
-                render={props => <StockProfile {...props} ticker="nflx" />}
+                render={props => (
+                  <div className="row">
+                    <TechOverview />
+                    <StockProfile {...props} ticker="nflx" />
+                  </div>
+                )}
               />
             </div>
           </div>

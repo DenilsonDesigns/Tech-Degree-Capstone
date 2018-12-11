@@ -13,13 +13,6 @@ class StockProfile extends Component {
       loading: true
     });
 
-    // axios.get("/api/news").then(res => {
-    //   console.log(res);
-    //   this.setState({
-    //     newStories: res.data.articles
-    //   });
-    // });
-
     let path = "/api/stock/" + this.props.ticker;
     console.log(path);
     axios
@@ -54,19 +47,30 @@ class StockProfile extends Component {
         return <Spinner />;
       } else {
         return (
-          <div>
+          <div className="col-md-4 stockcard">
             <div className="card mr-3">
-              <h4 className="card-header">
-                Symbol: {this.props.ticker.toUpperCase()}
-              </h4>
+              <div className="card-title stocktitle">
+                <h4 className="card-header" style={{ color: "white" }}>
+                  Symbol: {this.props.ticker.toUpperCase()}
+                </h4>
+              </div>
               <h4>
                 Price: {Number(this.state.stockInFocus["05. price"]).toFixed(2)}
               </h4>
               <h4>
-                Volume{" "}
+                Volume:{" "}
                 {Number(this.state.stockInFocus["06. volume"]).toLocaleString()}
               </h4>
               <h4>Change: {this.state.stockInFocus["10. change percent"]}</h4>
+              <button type="button" className="btn btn-outline-info">
+                <a
+                  href={`http://bigcharts.marketwatch.com/quickchart/quickchart.asp?symb=${
+                    this.props.ticker
+                  }&insttype=&freq=&show=`}
+                >
+                  View Chart
+                </a>
+              </button>
             </div>
           </div>
         );

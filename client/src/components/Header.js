@@ -15,17 +15,23 @@ class Header extends Component {
         );
       default:
         return (
-          <div>
+          <div className="ml-auto">
             <Link
               to="/market-overview"
-              className="navbar-brand font-weight-medium"
+              className="navbar-brand font-weight-medium navbaroption"
             >
               Indices
             </Link>
-            <Link to="/tech" className="navbar-brand font-weight-medium">
+            <Link
+              to="/tech"
+              className="navbar-brand font-weight-medium navbaroption"
+            >
               Tech Stocks
             </Link>
-            <Link to="/news" className="navbar-brand font-weight-medium">
+            <Link
+              to="/news"
+              className="navbar-brand font-weight-medium navbaroption"
+            >
               News
             </Link>
             <p
@@ -37,7 +43,7 @@ class Header extends Component {
             <a
               style={{ display: "inline-block" }}
               href="/api/logout"
-              className="nav-item nav-link text-muted"
+              className="nav-item nav-link text-muted logout"
             >
               Logout
             </a>
@@ -52,11 +58,11 @@ class Header extends Component {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link
           to={this.props.auth ? "/market-overview" : "/"}
-          className="navbar-brand font-weight-bold"
+          className="navbar-brand font-weight-bold navbaroption"
         >
           Stockify
         </Link>
-        <div className="navbar-nav">{this.renderContent()}</div>
+        <div className="navbar-nav ml-auto">{this.renderContent()}</div>
       </nav>
     );
   }
