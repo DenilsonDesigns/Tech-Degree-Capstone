@@ -9,7 +9,10 @@ class Header extends Component {
         return;
       case false:
         return (
-          <a href="/auth/google" className="nav-item nav-link active">
+          <a
+            href="/auth/google"
+            className="nav-item nav-link active navbaroption"
+          >
             Login With Google
           </a>
         );
